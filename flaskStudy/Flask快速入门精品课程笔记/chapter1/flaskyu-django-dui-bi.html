@@ -1,0 +1,535 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <!-- Start book 6节课入门Flask框架web开发 -->
+    <head>
+        <!-- head:start -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Flask简介 | 6节课入门Flask框架web开发</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../chapter1/flask-an-zhuang-huan-jing.html" />
+    
+    
+    <link rel="prev" href="../chapter1/flaskjian-jie.html" />
+    
+
+        <!-- head:end -->
+    </head>
+    <body>
+        <!-- body:start -->
+        
+    <div class="book"
+        data-level="1.2"
+        data-chapter-title="Flask简介"
+        data-filepath="chapter1/flaskyu-django-dui-bi.md"
+        data-basepath=".."
+        data-revision="Sun Jan 28 2018 01:59:46 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Flask快速入门课程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="chapter1.html">
+            
+                
+                    <a href="../chapter1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Flask基础
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="chapter1/flaskjian-jie.html">
+            
+                
+                    <a href="../chapter1/flaskjian-jie.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        为什么要使用WEB框架
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="chapter1/flaskyu-django-dui-bi.html">
+            
+                
+                    <a href="../chapter1/flaskyu-django-dui-bi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Flask简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter1/flask-an-zhuang-huan-jing.html">
+            
+                
+                    <a href="../chapter1/flask-an-zhuang-huan-jing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Flask 安装环境
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter1/requirements-wen-jian.html">
+            
+                
+                    <a href="../chapter1/requirements-wen-jian.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        requirements 文件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter1/hello-worldcheng-xu.html">
+            
+                
+                    <a href="../chapter1/hello-worldcheng-xu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        Hello World程序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapter1/lu-you-de-ge-zhong-ding-yi-fang-shi.html">
+            
+                
+                    <a href="../chapter1/lu-you-de-ge-zhong-ding-yi-fang-shi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        路由定义的基本方式
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter2.html">
+            
+                
+                    <a href="../chapter2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        模板
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="chapter2/jinja2mo-ban-yin-qing.html">
+            
+                
+                    <a href="../chapter2/jinja2mo-ban-yin-qing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Jinja2模板引擎
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter2/guo-lv-qi.html">
+            
+                
+                    <a href="../chapter2/guo-lv-qi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        过滤器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter2/hong.html">
+            
+                
+                    <a href="../chapter2/hong.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Flask-WTF表单
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter3.html">
+            
+                
+                    <a href="../chapter3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        数据库
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="chapter3/shu-ju-ku-de-she-zhi.html">
+            
+                
+                    <a href="../chapter3/shu-ju-ku-de-she-zhi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Flask中使用数据库
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="chapter3/shu-ju-ku-ji-ben-cao-zuo.html">
+            
+                
+                    <a href="../chapter3/shu-ju-ku-ji-ben-cao-zuo.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        数据库基本操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="chapter3/zong-he-an-4f8b-tu-shu-guan-li.html">
+            
+                
+                    <a href="../chapter3/zong-he-an-4f8b-tu-shu-guan-li.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        综合案例-图书管理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="chapter3/zong-he-an-4f8b-tu-shu-guan-li/ding-yi-mo-xing.html">
+            
+                
+                    <a href="../chapter3/zong-he-an-4f8b-tu-shu-guan-li/ding-yi-mo-xing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.1.</b>
+                        
+                        定义模型&amp;创建表&amp;数据添加
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="chapter3/zong-he-an-4f8b-tu-shu-guan-li/shu-ju-xian-793a26-biao-dan-tian-jia.html">
+            
+                
+                    <a href="../chapter3/zong-he-an-4f8b-tu-shu-guan-li/shu-ju-xian-793a26-biao-dan-tian-jia.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.2.</b>
+                        
+                        数据显示&amp;表单添加
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="chapter3/zong-he-an-4f8b-tu-shu-guan-li/biao-dan-yan-zheng.html">
+            
+                
+                    <a href="../chapter3/zong-he-an-4f8b-tu-shu-guan-li/biao-dan-yan-zheng.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.3.</b>
+                        
+                        添加数据的表单验证
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="chapter3/zong-he-an-4f8b-tu-shu-guan-li/shan-chu-shu-ju.html">
+            
+                
+                    <a href="../chapter3/zong-he-an-4f8b-tu-shu-guan-li/shan-chu-shu-ju.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.4.</b>
+                        
+                        删除数据
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >6节课入门Flask框架web开发</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="flask&#x7B80;&#x4ECB;&#xFF1A;">Flask&#x7B80;&#x4ECB;&#xFF1A;</h2>
+<p>Flask&#x8BDE;&#x751F;&#x4E8E;2010&#x5E74;&#xFF0C;&#x662F;&#x7528;Python&#x8BED;&#x8A00;&#x57FA;&#x4E8E;Werkzeug&#x5DE5;&#x5177;&#x7BB1;&#x7F16;&#x5199;&#x7684;&#x8F7B;&#x91CF;&#x7EA7;Web&#x5F00;&#x53D1;&#x6846;&#x67B6;&#x3002;</p>
+<p>Flask&#x672C;&#x8EAB;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x5185;&#x6838;&#xFF0C;&#x5176;&#x4ED6;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;&#x529F;&#x80FD;&#x90FD;&#x8981;&#x7528;&#x5230;&#x6269;&#x5C55;&#xFF08;&#x90AE;&#x4EF6;&#x6269;&#x5C55;Flask-Mail&#xFF0C;&#x7528;&#x6237;&#x8BA4;&#x8BC1;Flask-Login&#xFF09;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x6269;&#x5C55;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x5176; WSGI &#x5DE5;&#x5177;&#x7BB1;&#x91C7;&#x7528; Werkzeug&#xFF08;&#x8DEF;&#x7531;&#x6A21;&#x5757;&#xFF09;&#xFF0C;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x5219;&#x4F7F;&#x7528; Jinja2&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x4E5F;&#x662F;Flask&#x6846;&#x67B6;&#x7684;&#x6838;&#x5FC3;&#x3002;</p>
+<p>Python&#x6700;&#x51FA;&#x540D;&#x7684;&#x6846;&#x67B6;&#x8981;&#x6570;Django&#xFF0C;&#x6B64;&#x5916;&#x8FD8;&#x6709;Flask&#x3001;Tornado&#x7B49;&#x6846;&#x67B6;&#x3002;&#x867D;&#x7136;Flask&#x4E0D;&#x662F;&#x6700;&#x51FA;&#x540D;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x4F46;&#x662F;Flask&#x5E94;&#x8BE5;&#x7B97;&#x662F;&#x6700;&#x7075;&#x6D3B;&#x7684;&#x6846;&#x67B6;&#x4E4B;&#x4E00;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;Flask&#x53D7;&#x5230;&#x5E7F;&#x5927;&#x5F00;&#x53D1;&#x8005;&#x559C;&#x7231;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p><strong>Flask&#x5E38;&#x7528;&#x6269;&#x5C55;&#x5305;&#xFF1A;</strong></p>
+<ul>
+<li>Flask-SQLalchemy&#xFF1A;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#xFF1B;</li>
+<li>Flask-migrate&#xFF1A;&#x7BA1;&#x7406;&#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#xFF1B;</li>
+<li>Flask-Mail:&#x90AE;&#x4EF6;&#xFF1B;</li>
+<li>Flask-WTF&#xFF1A;&#x8868;&#x5355;&#xFF1B;</li>
+<li>Flask-Bable&#xFF1A;&#x63D0;&#x4F9B;&#x56FD;&#x9645;&#x5316;&#x548C;&#x672C;&#x5730;&#x5316;&#x652F;&#x6301;&#xFF0C;&#x7FFB;&#x8BD1;&#xFF1B;</li>
+<li>Flask-script&#xFF1A;&#x63D2;&#x5165;&#x811A;&#x672C;&#xFF1B;</li>
+<li>Flask-Login&#xFF1A;&#x8BA4;&#x8BC1;&#x7528;&#x6237;&#x72B6;&#x6001;&#xFF1B;</li>
+<li>Flask-OpenID&#xFF1A;&#x8BA4;&#x8BC1;&#xFF1B;</li>
+<li>Flask-RESTful&#xFF1A;&#x5F00;&#x53D1;REST API&#x7684;&#x5DE5;&#x5177;&#xFF1B;</li>
+<li>Flask-Bootstrap&#xFF1A;&#x96C6;&#x6210;&#x524D;&#x7AEF;Twitter Bootstrap&#x6846;&#x67B6;&#xFF1B;</li>
+<li>Flask-Moment&#xFF1A;&#x672C;&#x5730;&#x5316;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#xFF1B;</li>
+<li>Flask-Admin&#xFF1A;&#x7B80;&#x5355;&#x800C;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x7BA1;&#x7406;&#x63A5;&#x53E3;&#x7684;&#x6846;&#x67B6;</li>
+</ul>
+<blockquote>
+<p>&#x6269;&#x5C55;&#x5217;&#x8868;&#xFF1A;<a href="http://flask.pocoo.org/extensions/" target="_blank">http://flask.pocoo.org/extensions/</a></p>
+</blockquote>
+<ol>
+<li>&#x4E2D;&#x6587;&#x6587;&#x6863;&#xFF08;<a href="http://docs.jinkan.org/docs/flask/" target="_blank">http://docs.jinkan.org/docs/flask/</a>&#xFF09;</li>
+<li>&#x82F1;&#x6587;&#x6587;&#x6863;&#xFF08;<a href="http://flask.pocoo.org/docs/0.12/" target="_blank">http://flask.pocoo.org/docs/0.12/</a>&#xFF09;</li>
+</ol>
+<h2 id="flask&#x4E0E;django&#x5BF9;&#x6BD4;">Flask&#x4E0E;Django&#x5BF9;&#x6BD4;</h2>
+<ul>
+<li>Django vs Flask</li>
+</ul>
+<p><img src="../assets/&#x88C5;&#x6F62;&#x6548;&#x679C;&#x56FE;.jpg" alt=""></p>
+<ul>
+<li>Flask</li>
+</ul>
+<p><img src="../assets/&#x7B80;&#x88C5;&#x56FE;.jpg" alt=""></p>
+<h2 id="&#x6846;&#x67B6;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x522B;">&#x6846;&#x67B6;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x522B;</h2>
+<ul>
+<li><p>Django&#x529F;&#x80FD;&#x5927;&#x800C;&#x5168;&#xFF0C;Flask&#x53EA;&#x5305;&#x542B;&#x57FA;&#x672C;&#x7684;&#x914D;&#x7F6E;<br>Django&#x7684;&#x4E00;&#x7AD9;&#x5F0F;&#x89E3;&#x51B3;&#x7684;&#x601D;&#x8DEF;&#xFF0C;&#x80FD;&#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x4E0D;&#x7528;&#x5728;&#x5F00;&#x53D1;&#x4E4B;&#x524D;&#x5C31;&#x5728;&#x9009;&#x62E9;&#x5E94;&#x7528;&#x7684;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x4E0A;&#x82B1;&#x8D39;&#x5927;&#x91CF;&#x65F6;&#x95F4;&#x3002;Django&#x6709;&#x6A21;&#x677F;&#xFF0C;&#x8868;&#x5355;&#xFF0C;&#x8DEF;&#x7531;&#xFF0C;&#x8BA4;&#x8BC1;&#xFF0C;&#x57FA;&#x672C;&#x7684;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7B49;&#x7B49;&#x5185;&#x5EFA;&#x529F;&#x80FD;&#x3002;&#x4E0E;&#x4E4B;&#x76F8;&#x53CD;&#xFF0C;Flask&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5185;&#x6838;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F9D;&#x8D56;&#x4E8E;&#x4E24;&#x4E2A;&#x5916;&#x90E8;&#x5E93;&#xFF1A; Jinja2 &#x6A21;&#x677F;&#x5F15;&#x64CE;&#x548C; Werkzeug WSGI &#x5DE5;&#x5177;&#x96C6;&#xFF0C;&#x5176;&#x4ED6;&#x5F88;&#x591A;&#x529F;&#x80FD;&#x90FD;&#x662F;&#x4EE5;&#x6269;&#x5C55;&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x5D4C;&#x5165;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+<li><p>Flask &#x6BD4; Django &#x66F4;&#x7075;&#x6D3B;  </p>
+</li>
+<li><p>Flask &#x5728; Django &#x4E4B;&#x540E;&#x53D1;&#x5E03;&#xFF0C;&#x73B0;&#x9636;&#x6BB5;&#x6709;&#x5927;&#x91CF;&#x7684;&#x63D2;&#x4EF6;&#x548C;&#x6269;&#x5C55;&#x6EE1;&#x8DB3;&#x4E0D;&#x540C;&#x9700;&#x8981;<br>Django&#x53D1;&#x5E03;&#x4E8E;2005&#x5E74;&#xFF0C;Flask&#x521B;&#x59CB;&#x4E8E;2010&#x5E74;&#x5E74;&#x4E2D;&#x3002;</p>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../chapter1/flaskjian-jie.html" class="navigation navigation-prev " aria-label="Previous page: 为什么要使用WEB框架"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../chapter1/flask-an-zhuang-huan-jing.html" class="navigation navigation-next " aria-label="Next page: Flask 安装环境"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"toggle-chapters":{},"splitter":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <!-- body:end -->
+    </body>
+    <!-- End of book 6节课入门Flask框架web开发 -->
+</html>
