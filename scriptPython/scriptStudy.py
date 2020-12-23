@@ -35,5 +35,5 @@ if __name__ == '__main__':
     #           '--faultData_dir /Users/seafyliang/DEV/Code_projects/hyetec_Algorithm/inputData/testInputData'
     #           '/microserviceLocation/dataDescribe/0故障说明.xlsx --out_file_path '
     #           '/Users/seafyliang/DEV/Code_projects/hyetec_Algorithm/outputData/resultData/microserviceLocation/')
-
-    os.system('docker run -it microsoftlocation:0.1 /bin/bash ;  python __init__.py')
+    print("test")
+    # os.system('docker run -it microsoftlocation:0.1 /bin/bash ;  python __init__.py')
