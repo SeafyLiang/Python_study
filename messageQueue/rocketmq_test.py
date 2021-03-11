@@ -7,6 +7,7 @@
 2021/3/11 14:15   SeafyLiang   1.0          None
 """
 
+# rocketmq==0.4.4
 from rocketmq.client import Producer, Message
 import time
 from rocketmq.client import PushConsumer
