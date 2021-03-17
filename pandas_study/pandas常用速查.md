@@ -404,3 +404,327 @@ g=sns.heatmap(df_corr,annot=True,cmap="RdYlGn")
 ```
 
 ![image-20210304141345224](https://i.loli.net/2021/03/04/Oh2F4wrV5WZtLal.png)
+
+
+
+### 66个最常用的pandas数据分析函数
+
+```python
+df #任何pandas DataFrame对象 
+s #任何pandas series对象
+```
+
+#### 从各种不同的来源和格式导入数据
+
+```python
+pd.read_csv(filename) # 从CSV文件 
+pd.read_table(filename) # 从分隔的文本文件（例如CSV）中 
+pd.read_excel(filename) # 从Excel文件 
+pd.read_sql(query, connection_object) # 从SQL表/数据库中读取 
+pd.read_json(json_string) # 从JSON格式的字符串，URL或文件中读取。
+pd.read_html(url) # 解析html URL，字符串或文件，并将表提取到数据帧列表 
+pd.read_clipboard() # 获取剪贴板的内容并将其传递给 read_table() 
+pd.DataFrame(dict) # 从字典中，列名称的键，列表中的数据的值
+```
+
+#### 导出数据
+
+```python
+df.to_csv(filename) # 写入CSV文件 
+df.to_excel(filename) # 写入Excel文件 
+df.to_sql(table_name, connection_object) # 写入SQL表 
+df.to_json(filename) # 以JSON格式写入文件
+```
+
+#### 创建测试对象
+
+```python
+pd.DataFrame(np.random.rand(20,5))               # 5列20行随机浮点数 pd.Series(my_list)                               # 从一个可迭代的序列创建一个序列 my_list 
+df.index = pd.date_range('1900/1/30', periods=df.shape[0]) # 添加日期索引
+```
+
+#### 查看、检查数据
+
+```python
+df.head(n)                       # DataFrame的前n行 
+df.tail(n)                       # DataFrame的最后n行 
+df.shape                         # 行数和列数 
+df.info()                        # 索引，数据类型和内存信息 
+df.describe()                    # 数值列的摘要统计信息 
+s.value_counts(dropna=False)     # 查看唯一值和计数 
+df.apply(pd.Series.value_counts) # 所有列的唯一值和计数
+```
+
+#### 数据选取
+
+```python
+使用这些命令选择数据的特定子集。
+df[col]               # 返回带有标签col的列 
+df[[col1, col2]]      # 返回列作为新的DataFrame 
+s.iloc[0]             # 按位置选择 
+s.loc['index_one']    # 按索引选择 
+df.iloc[0,:]          # 第一行 
+df.iloc[0,0]          # 第一栏的第一元素
+```
+
+#### 数据清理
+
+```python
+df.columns = ['a','b','c']                  # 重命名列 
+pd.isnull()                                 # 空值检查，返回Boolean Arrray 
+pd.notnull()                                # 与pd.isnull() 相反 
+df.dropna()                                 # 删除所有包含空值的行 
+df.dropna(axis=1)                           # 删除所有包含空值的列 
+df.dropna(axis=1,thresh=n)                  # 删除所有具有少于n个非null值的行 
+df.fillna(x)                                # 将所有空值替换为x 
+s.fillna(s.mean())                          # 用均值替换所有空值（均值可以用统计模块中的几乎所有函数替换 ） 
+s.astype(float)                             # 将系列的数据类型转换为float 
+s.replace(1,'one')                          # 1 用 'one' 
+s.replace([1,3],['one','three'])            # 替换所有等于的值 替换为所有1 'one' ，并 3 用 'three' df.rename(columns=lambda x: x + 1)          # 列的重命名 
+df.rename(columns={'old_name': 'new_ name'})# 选择性重命名 
+df.set_index('column_one')                  # 更改索引 
+df.rename(index=lambda x: x + 1)            # 大规模重命名索引
+```
+
+#### 筛选，排序和分组依据
+
+```python
+df[df[col] > 0.5]                      # 列 col 大于 0.5 df[(df[col] > 0.5) & (df[col] < 0.7)]  # 小于 0.7 大于0.5的行 
+df.sort_values(col1)                   # 按col1升序对值进行排序 
+df.sort_values(col2,ascending=False)   # 按col2 降序对值进行 排序 
+df.sort_values([col1,col2],ascending=[True,False]) #按 col1 升序排序，然后 col2 按降序排序 
+df.groupby(col)                        #从一个栏返回GROUPBY对象 
+df.groupby([col1,col2]) # 返回来自多个列的groupby对象 
+df.groupby(col1)[col2]                 # 返回中的值的平均值 col2，按中的值分组 col1 （平均值可以用统计模块中的几乎所有函数替换 ） 
+df.pivot_table(index=col1,values=[col2,col3],aggfunc=mean) # 创建一个数据透视表组通过 col1 ，并计算平均值的 col2 和 col3 
+df.groupby(col1).agg(np.mean)          # 在所有列中找到每个唯一col1 组的平均值 
+df.apply(np.mean)                      #np.mean() 在每列上应用该函数 
+df.apply(np.max,axis=1)                # np.max() 在每行上应用功能
+```
+
+#### 数据合并
+
+```python
+df1.append(df2)                   # 将df2添加 df1的末尾 （各列应相同） 
+pd.concat([df1, df2],axis=1)      # 将 df1的列添加到df2的末尾 （行应相同） 
+df1.join(df2,on=col1,how='inner') # SQL样式将列 df1 与 df2 行所在的列col 具有相同值的列连接起来。'how'可以是一个 'left'， 'right'， 'outer'， 'inner'
+```
+
+#### 数据统计
+
+```python
+df.describe()    # 数值列的摘要统计信息 
+df.mean()        # 返回均值的所有列 
+df.corr()        # 返回DataFrame中各列之间的相关性 
+df.count()       # 返回非空值的每个数据帧列中的数字 
+df.max()         # 返回每列中的最高值 
+df.min()         # 返回每一列中的最小值 
+df.median()      # 返回每列的中位数 
+df.std()         # 返回每列的标准偏差
+```
+
+### 16个函数，用于数据清洗
+
+```python
+# 导入数据集
+import pandas as pd
+
+df ={'姓名':[' 黄同学','黄至尊','黄老邪 ','陈大美','孙尚香'],
+     '英文名':['Huang tong_xue','huang zhi_zun','Huang Lao_xie','Chen Da_mei','sun shang_xiang'],
+     '性别':['男','women','men','女','男'],
+     '身份证':['463895200003128433','429475199912122345','420934199110102311','431085200005230122','420953199509082345'],
+     '身高':['mid:175_good','low:165_bad','low:159_bad','high:180_verygood','low:172_bad'],
+     '家庭住址':['湖北广水','河南信阳','广西桂林','湖北孝感','广东广州'],
+     '电话号码':['13434813546','19748672895','16728613064','14561586431','19384683910'],
+     '收入':['1.1万','8.5千','0.9万','6.5千','2.0万']}
+df = pd.DataFrame(df)
+df
+```
+
+![image-20210317200439700](https://i.loli.net/2021/03/17/PANc94SlWnvmUXI.png)
+
+#### 1.cat函数
+
+用于字符串的拼接
+
+```python
+df["姓名"].str.cat(df["家庭住址"],sep='-'*3)
+```
+
+![image-20210317200533366](https://i.loli.net/2021/03/17/SKZHmWVTePwbj97.png)
+
+#### 2.contains
+
+判断某个字符串是否包含给定字符
+
+```python
+df["家庭住址"].str.contains("广")
+```
+
+![image-20210317200615860](https://i.loli.net/2021/03/17/1K2rLmtvHhkFgdI.png)
+
+#### 3.startswith/endswith
+
+判断某个字符串是否以…开头/结尾
+
+```python
+# 第一个行的“ 黄伟”是以空格开头的
+df["姓名"].str.startswith("黄") 
+df["英文名"].str.endswith("e")
+```
+
+![image-20210317200659881](https://i.loli.net/2021/03/17/rBshJiU4wHue795.png)
+
+#### 4.count
+
+计算给定字符在字符串中出现的次数
+
+```python
+df["电话号码"].str.count("3")
+```
+
+![image-20210317200732930](https://i.loli.net/2021/03/17/efX3UhAqOpWPvy9.png)
+
+#### 5.get
+
+获取指定位置的字符串
+
+```python
+df["姓名"].str.get(-1)
+df["身高"].str.split(":")
+df["身高"].str.split(":").str.get(0)
+```
+
+![image-20210317200807685](https://i.loli.net/2021/03/17/fAN56zi1rQxwdHm.png)
+
+#### 6.len
+
+计算字符串长度
+
+```python
+df["性别"].str.len()
+```
+
+![image-20210317200845698](https://i.loli.net/2021/03/17/3QcNKHFXIqLz4Si.png)
+
+#### 7.upper/lower
+
+英文大小写转换
+
+```python
+df["英文名"].str.upper()
+df["英文名"].str.lower()
+```
+
+![image-20210317200941576](https://i.loli.net/2021/03/17/EjmqX2s83J69TiU.png)
+
+#### 8.pad+side参数/center
+
+在字符串的左边、右边或左右两边添加给定字符
+
+```python
+df["家庭住址"].str.pad(10,fillchar="*")      # 相当于ljust()
+df["家庭住址"].str.pad(10,side="right",fillchar="*")    # 相当于rjust()
+df["家庭住址"].str.center(10,fillchar="*")
+```
+
+![image-20210317201018580](https://i.loli.net/2021/03/17/c5tng9DKjSy1Mpa.png)
+
+#### 9.repeat
+
+重复字符串几次
+
+```python
+df["性别"].str.repeat(3)
+```
+
+![image-20210317201056869](https://i.loli.net/2021/03/17/NjtdUBcW19ePSsv.png)
+
+#### 10.slice_replace
+
+使用给定的字符串，替换指定的位置的字符
+
+```python
+df["电话号码"].str.slice_replace(4,8,"*"*4)
+```
+
+![image-20210317201149679](https://i.loli.net/2021/03/17/vCXfuQ7Dw8bm5eH.png)
+
+#### 11.replace
+
+将指定位置的字符，替换为给定的字符串
+
+```python
+df["身高"].str.replace(":","-")
+```
+
+![image-20210317201230417](https://i.loli.net/2021/03/17/biI9rAF53LXVDlf.png)
+
+#### 12.replace
+
+将指定位置的字符，替换为给定的字符串(接受正则表达式)
+
+- replace中传入正则表达式，才叫好用；
+- 先不要管下面这个案例有没有用，你只需要知道，使用正则做数据清洗多好用；
+
+```python
+df["收入"].str.replace("\d+\.\d+","正则")
+```
+
+![image-20210317201259883](https://i.loli.net/2021/03/17/KqlIOk5XViE4efA.png)
+
+#### 13.split方法+expand参数
+
+搭配join方法功能很强大
+
+```python
+# 普通用法
+df["身高"].str.split(":")
+# split方法，搭配expand参数
+df[["身高描述","final身高"]] = df["身高"].str.split(":",expand=True)
+df
+# split方法搭配join方法
+df["身高"].str.split(":").str.join("?"*5)
+```
+
+![image-20210317201330183](https://i.loli.net/2021/03/17/wnarKk4XiFELU59.png)
+
+#### 14.strip/rstrip/lstrip
+
+去除空白符、换行符
+
+```python
+df["姓名"].str.len()
+df["姓名"] = df["姓名"].str.strip()
+df["姓名"].str.len()
+```
+
+![image-20210317201402157](https://i.loli.net/2021/03/17/MhJ8R45SyPDe1sI.png)
+
+#### 15.findall
+
+利用正则表达式，去字符串中匹配，返回查找结果的列表
+
+- findall使用正则表达式，做数据清洗，真的很香！
+
+```python
+df["身高"]
+df["身高"].str.findall("[a-zA-Z]+")
+```
+
+![image-20210317201435530](https://i.loli.net/2021/03/17/dDGgVIuvFTAJkBS.png)
+
+#### 16.extract/extractall
+
+接受正则表达式，抽取匹配的字符串(一定要加上括号)
+
+```python
+df["身高"].str.extract("([a-zA-Z]+)")
+# extractall提取得到复合索引
+df["身高"].str.extractall("([a-zA-Z]+)")
+# extract搭配expand参数
+df["身高"].str.extract("([a-zA-Z]+).*?([a-zA-Z]+)",expand=True)
+```
+
+![image-20210317201511071](https://i.loli.net/2021/03/17/duRYBKA2UxDrCM1.png)
+
