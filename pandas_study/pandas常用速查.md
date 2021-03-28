@@ -16,6 +16,8 @@ from sqlalchemy import create_engine
 
 # 可视化
 import matplotlib.pyplot as plt
+# 如果你的设备是配备Retina屏幕的mac，可以在jupyter notebook中，使用下面一行代码有效提高图像画质
+%config InlineBackend.figure_format = 'retina'
 # 解决 plt 中文显示的问题 mymac
 plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
 # 设置显示中文 需要先安装字体 aistudio
