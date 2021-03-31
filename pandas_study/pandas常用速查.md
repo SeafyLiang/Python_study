@@ -206,6 +206,86 @@ df_jj2.drop(['coll_time', 'polar', 'conn_type', 'phase', 'id', 'Unnamed: 0'],axi
 
 
 
+### groupby
+
+```python
+# 0.从sklearn加载iris数据集
+from sklearn import datasets
+# 加载数据集和目标
+data, target = datasets.load_iris(return_X_y=True, as_frame=True)
+# 合并数据集和目标
+iris = pd.concat([data, target], axis=1, sort=False)
+iris
+
+# 创建groupby对象
+iris_gb = iris.groupby('target')
+
+# 1. 创建频率表，输出每个类中数量多少
+iris_gb.size()
+
+# 2. 计算常用的描述统计量
+# min、max()、medianhe、std等
+# 计算均值
+iris_gb.mean()
+# 单列
+iris_gb['sepal length (cm)'].mean()
+# 双列
+iris_gb[['sepal length (cm)', 'sepal width (cm)']].mean()
+
+# 3. 查找最大值（最小值）索引
+iris_gb.idxmax()
+
+# 按sepal_length最大值这个条件进行了筛选
+sepal_largest = iris.loc[iris_gb['sepal length (cm)'].idxmax()]
+
+# 4. Groupby之后重置索引
+iris_gb.max().reset_index()
+# ↑↓二者效果相同
+iris.groupby('target', as_index=False).max()
+
+# 5. 多种统计量汇总，聚合函数agg
+iris_gb[['sepal length (cm)', 'sepal width (cm)']].agg(["min", "mean"])
+
+# 6.特定列的聚合
+# 为不同的列单独设置不同的统计量
+iris_gb.agg({"sepal length (cm)": ["min", "max"], "sepal width (cm)": ["mean", "std"]})
+
+# 7. NamedAgg命名统计量
+# 把每个列下面的统计量和列名分别合并起来。可以使用NamedAgg来完成列的命名
+
+iris_gb.agg(
+     sepal_min=pd.NamedAgg(column="sepal length (cm)", aggfunc="min"),
+     sepal_max=pd.NamedAgg(column="sepal length (cm)", aggfunc="max"),
+     petal_mean=pd.NamedAgg(column="petal length (cm)", aggfunc="mean"),
+     petal_std=pd.NamedAgg(column="petal length (cm)", aggfunc="std")
+ )
+
+# 下述更简洁
+iris_gb.agg(
+    sepal_min=("sepal length (cm)", "min"),
+    sepal_max=("sepal length (cm)", "max"),
+    petal_mean=("petal length (cm)", "mean"),
+    petal_std=("petal length (cm)", "std")
+)
+
+# 8. 使用自定义函数
+iris_gb.agg(pd.Series.mean)
+# 不仅如此，名称和功能对象也可一起使用。
+iris_gb.agg(["min", pd.Series.mean])
+# 我们还可以自定义函数，也都是可以的。
+def double_length(x):
+    return 2*x.mean()
+
+iris_gb.agg(double_length)
+# 如果想更简洁，也可以使用lambda函数。总之，用法非常灵活，可以自由组合搭配。
+iris_gb.agg(lambda x: x.mean())
+
+```
+
+
+
+
+
 ### 数据筛选
 
 ```python
