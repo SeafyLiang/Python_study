@@ -284,6 +284,28 @@ iris_gb.agg(lambda x: x.mean())
 
 
 
+### 透视表
+
+```python
+import numpy as np
+import pandas as pd
+import seaborn as sns
+titanic = sns.load_dataset('titanic')
+
+titanic.pivot_table(index='sex', columns='class')
+
+# 默认对所有列进行聚合，这时我们给与values参数，只计算想要的结果
+agg = pd.cut(titanic["age"],[0,18,80])	# 对年龄数据列进行分段，便于观看
+titanic.pivot_table(index=['sex','age'], columns='class',values=['survived','fare'])
+
+# 在实际使用中，并不一定每次都要均值，使用aggfunc指定累计函数
+titanic.pivot_table(index='sex', columns='class',aggfunc={'survived':sum, 'fare':'mean'})
+
+# 当需要计算每一组的总数时，可以通过margins 参数来设置：
+# margin 的标签可以通过margins_name 参数进行自定义，默认值是"All"。
+titanic.pivot_table('survived', index='sex', columns='class', margins=True)
+```
+
 
 
 ### 数据筛选
