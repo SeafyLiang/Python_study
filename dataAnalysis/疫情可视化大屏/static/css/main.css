@@ -1,0 +1,145 @@
+body {
+	margin: 0;
+	background: #333;
+}
+
+#title {
+	position: absolute;
+	width: 40%;
+	height: 10%;
+	top: 0;
+	left: 30%;
+	/* background: #666666; */
+	color: white;
+	font-size: 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#tim {
+	position: absolute;
+	/* width: 30%; */
+	height: 10%;
+	right: 2%;
+	top: 5%;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+
+#c1 {
+	position: absolute;
+	width: 40%;
+	height: 25%;
+	top: 10%;
+	left: 30%;
+	color: white
+		/* background: #777777; */
+}
+
+.num {
+	width: 25%;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: gold;
+	font-size: 20px;
+	/*margin-top: 20px;*/
+}
+
+.txt {
+	width: 25%;
+	float: left;
+	font-family: "幼圆";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.txt h2 {
+	margin: 0;
+}
+
+
+
+
+
+
+#c2 {
+	position: absolute;
+	width: 40%;
+	height: 65%;
+	top: 35%;
+	left: 30%;
+	background: #888888;
+}
+
+#l1 {
+	position: absolute;
+	width: 30%;
+	height: 45%;
+	top: 10%;
+	left: 0%;
+	background: #666666;
+}
+
+#l2 {
+	position: absolute;
+	width: 30%;
+	height: 45%;
+	top: 55%;
+	left: 0%;
+	background: #777;
+}
+
+#r1 {
+	position: absolute;
+	width: 30%;
+	height: 45%;
+	top: 10%;
+	right: 0%;
+	background: #666666;
+}
+
+#r2 {
+	position: absolute;
+	width: 30%;
+	height: 45%;
+	top: 55%;
+	right: 0%;
+	background: #777;
+}
+
+/* 此处是设置自动匹配横屏，以适应手机显示 使用下面定义的id:gyroContain   */
+@media screen and (orientation: portrait) {
+    html{
+        width : 100vmin;
+        height : 100vmax;
+    }
+    body{
+        width : 100vmin;
+        height : 100vmax;
+    }
+    #gyroContain{
+        width : 100vmax;
+        height : 100vmin;
+        transform-origin: top left;
+        transform: rotate(90deg) translate(0,-100vmin);
+    }
+  }
+@media screen and (orientation: landscape) {
+    html{
+        width : 100vmax;
+        height : 100vmin;
+    }
+    body{
+        width : 100vmax;
+        height : 100vmin;
+    }
+    #gyroContain{
+        width : 100vmax;
+        height : 100vmin;
+    }
+}
