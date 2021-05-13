@@ -24,4 +24,12 @@ print("2.自定义列值排序：", sales.sort_values(by='分公司'))
 # sales = pd.merge(sales, branch, on="分公司代码", how="left")
 # sales = pd.merge(sales, department, on="门店代码", how="left")
 
-print("3. 利用辅助列实现自定义列值排序：", sales.sort_values(['分公司代码', '门店代码'], inplace=True))
+print("3. 利用辅助列实现自定义列值排序：", sales.sort_values(by=['分公司代码', '门店代码'], inplace=True))
+
+sales.sort_index(axis='columns', ascending=True)
+sales = sales[['分公司代码', '分公司', '门店代码', '门店', '销售额']]
+# 删掉没用的列
+del sales['分公司代码'], sales['门店代码']
+# 重置索引
+sales.reset_index(drop=True, inplace=True)
+print("4. 自定义列序：", sales)
