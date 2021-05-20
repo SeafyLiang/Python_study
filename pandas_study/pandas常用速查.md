@@ -350,6 +350,21 @@ df_jj2yyb_0501_0701 = df_jj2yyb[(df_jj2yyb['r_time'] >=pd.to_datetime('20200501'
 # 数值筛选
 df[(df['popularity'] > 3) & (df['popularity'] < 7)]
 
+# 按数据类型选择列
+df = pd.DataFrame({'a': [1, 2] * 3,
+                   'b': [True, False] * 3,
+                   'c': [1.0, 2.0] * 3})
+print('df:', df)
+
+# 输出包含 bool 数据类型的列
+print('输出包含 bool 数据类型的列:', df.select_dtypes(include='bool'))
+
+# 输出包含小数数据类型的列
+print('输出包含小数数据类型的列:', df.select_dtypes(include=['float64']))
+
+# 输出排除整数的列
+print('输出包含小数数据类型的列:', df.select_dtypes(exclude=['int64']))
+
 # 某列字符串截取
 df['Time'].str[0:8]
 
