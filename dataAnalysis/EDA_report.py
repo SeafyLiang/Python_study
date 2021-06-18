@@ -13,6 +13,12 @@ mpg.head()
 
 """
 参考自：https://mp.weixin.qq.com/s/CIZjJg1sEsbkToYjSlRaUQ
+
+<结论>
+Pandas Profiling、Sweetviz和PandasGUI都很不错，旨在简化我们的EDA处理。在不同的工作流程中，每个都有自己的优势和适用性，三个工具具体优势如下：
+    * Pandas Profiling 适用于快速生成单个变量的分析。
+    * Sweetviz 适用于数据集之间和目标变量之间的分析。
+    * PandasGUI适用于具有手动拖放功能的深度分析。
 """
 
 '''
