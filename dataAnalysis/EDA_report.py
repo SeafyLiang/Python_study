@@ -26,10 +26,10 @@ Pandas Profiling、Sweetviz和PandasGUI都很不错，旨在简化我们的EDA�
 这个属于三个中最轻便、简单的了。它可以快速生成报告，一览变量概况。总共提供了六个部分：概述、变量、交互、相关性，缺失值和样本。
 参考资料:https://zhuanlan.zhihu.com/p/85967505
 '''
-# from pandas_profiling import ProfileReport
-#
-# profile = ProfileReport(mpg, title='MPG Pandas Profiling Report', explorative=True)
-# profile.to_file('pandas_profiling_report.html')
+from pandas_profiling import ProfileReport
+
+profile = ProfileReport(mpg, title='MPG Pandas Profiling Report', explorative=True)
+profile.to_file('pandas_profiling_report.html')
 
 
 '''
