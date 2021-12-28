@@ -6,6 +6,8 @@
 ------------      -------    --------    -----------
 2021/12/27 16:59   SeafyLiang   1.0        python异常处理
 """
+from datetime import date, timedelta
+
 """
 Python的异常处理可以向用户准确反馈出错信息，所有异常都是基类Exception的子类。
 自定义异常都是从基类Exception中继承，Python自动将所有内建的异常放到内建命名空间中
@@ -64,19 +66,41 @@ def get_cur_info():
 def get_exception_info():
     try:
         1 / 0
-    except Exception, e:
-        print 'str(Exception):\t', str(Exception)
-        print 'str(e):\t\t', str(e)
-        print 'repr(e):\t', repr(e)
-        print 'e.message:\t', e.message
-        print 'traceback.print_exc():'
+    except Exception as e:
+        print('str(Exception):\t', str(Exception))
+        print('str(e):\t\t', str(e))
+        print('repr(e):\t', repr(e))
+        print('e.message:\t', e.message)
+        print('traceback.print_exc():')
         traceback.print_exc()
-        print 'traceback.format_exc():\n%s' % traceback.format_exc()
+        print('traceback.format_exc():\n%s' % traceback.format_exc())
+
+
+# 测试demo
+def test_demo():
+    time_span = 3
+    n = time_span + 1
+    i = 0
+    time_cyc = date.today().strftime("%Y%m%d")
+    while int(time_cyc) >= 20200101:
+        i += 1
+        k = i + (i - 1) * (n - 2)
+        date_end = (date.today() + timedelta(days=-k)).strftime("%Y%m%d")
+        date_start = (date.today() + timedelta(days=-(k + n - 2))).strftime("%Y%m%d")
+        print(date_start, '-', date_end)
+        time_cyc = date_start
+        try:
+            if int(date_start[6:8]) < 3:
+                print('################3')
+            int(date_end) / (int(date_start) - 20201001)
+        except Exception as e:
+            print('repr(e):\t', repr(e))
 
 
 def callfunc():
     # print(get_cur_info())
-    get_exception_info()
+    # get_exception_info()
+    test_demo()
 
 
 if __name__ == '__main__':
