@@ -8,6 +8,11 @@
 """
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.ensemble import IsolationForest
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import MinMaxScaler
 
 
 def od_method(df, od_columns):
@@ -123,8 +128,49 @@ def od_method(df, od_columns):
     return r_df
 
 
+def model_rf_od(df):
+    # 使用孤立森林算法进行异常值检测
+    DetectionModel = IsolationForest()
+    DetectionModel.fit(np.array(df['c']).reshape(-1, 1))
+
+    # 得到检测值，其中1代表正常值，-1代表异常值
+    DctectionValue = DetectionModel.predict(np.array(df['c']).reshape(-1, 1))
+
+    df["DctectionValue"] = DctectionValue
+    return df
+
+
+def model_kmeans_od(df):
+    # 使用kmeans算法检验异常值，首先使用轮廓系数法来确定k值
+    ScoreList = []
+    for i in range(3, 30):
+        # 构建并训练模型
+        kmeans = KMeans(n_clusters=i, random_state=123).fit(df)
+        score = silhouette_score(df, kmeans.labels_)
+        ScoreList.append(score)
+    plt.figure(figsize=(30, 10))
+    plt.tick_params(labelsize=30)
+    plt.plot(range(3, 30), ScoreList, linewidth=1.5, linestyle="-")
+    plt.show()
+    # 构造kmeans算法，检测异常值，选择指定的labels即为异常值
+    scale = MinMaxScaler().fit(df)
+    DfDataScale = scale.transform(df)
+    KmeansModel = KMeans(n_clusters=8).fit(DfDataScale)
+
+    ClassNum = pd.Series(KmeansModel.labels_).value_counts()
+    print(ClassNum)
+    df["labels"] = KmeansModel.labels_
+    return df
+
+
 if __name__ == '__main__':
     df = pd.read_csv('data/od_test.csv')
+    df.boxplot()
+    plt.show()
     od_columns = ['a', 'b', 'c', 'd', 'e', 'f']
     r_df = od_method(df, od_columns)
     r_df.to_csv('data/od_result.csv', index=False)
+    r_df = model_rf_od(df)
+    r_df.to_csv('data/od_result_model_rf.csv', index=False)
+    r_df = model_kmeans_od(df)
+    r_df.to_csv('data/od_result_model_kmeans.csv', index=False)
