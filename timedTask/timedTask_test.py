@@ -145,6 +145,32 @@ def method6():
 
     scheduler.start()
 
+def method7():
+    '''
+    指定开始时间，时间间隔执行定时任务（如每日7：30执行任务）
+    '''
+    # BlockingScheduler：在进程中运行单个任务，调度器是唯一运行的东西
+    scheduler = BlockingScheduler()
+    # 从指定时间开始，每5秒执行一次
+    # interval间隔调度
+    #
+    # weeks (int) – 间隔几周
+    # days (int) – 间隔几天
+    # hours (int) – 间隔几小时
+    # minutes (int) – 间隔几分钟
+    # seconds (int) – 间隔多少秒
+    # start_date (datetime|str) – 开始日期
+    # end_date (datetime|str) – 结束日期
+    # timezone (datetime.tzinfo|str) – 时区
+    scheduler.add_job(job, 'interval', seconds=5, start_date='2022-07-30 07:30:00')
+    '''
+    2022-08-01 11:32:20
+    2022-08-01 11:32:25
+    2022-08-01 11:32:30
+    2022-08-01 11:32:35
+    '''
+    scheduler.start()
+
 
 if __name__ == '__main__':
-    method3()
+    method7()
